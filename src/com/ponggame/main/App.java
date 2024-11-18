@@ -1,20 +1,16 @@
 package com.ponggame.main;
 
-import javax.swing.*;
-
-import com.ponggame.ui.GamePanel;
 import com.ponggame.ui.HomePanel;
+import javax.swing.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
         JFrame frame = new JFrame("Pong Game");
-        GamePanel gamePanel = new GamePanel();
-
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
-        
-        HomePanel
-        frame.add(gamePanel);
+
+        HomePanel homePanel = new HomePanel(frame);
+        frame.add(homePanel);
         frame.pack();
         frame.setVisible(true);
     }

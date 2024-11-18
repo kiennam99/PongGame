@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import com.ponggame.game.ConfigLoader;
+import com.ponggame.utils.ButtonFactory;
 import com.ponggame.utils.FontManager;
 
 public class HomePanel extends JFrame {
@@ -27,18 +28,12 @@ public class HomePanel extends JFrame {
         titleLabel.setForeground(Color.BLUE);
         this.add(titleLabel, BorderLayout.CENTER);
 
-        JButton startButton = new JButton("Start Game");
-        startButton.setFont(FontManager.BUTTON_FONT);
-        startButton.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.getContentPane().removeAll();
-                frame.add(new InfoPanel(frame));
-                frame.revalidate();
-                frame.repaint();
-            }
-        });
+        JButton startButton = ButtonFactory.createButton("Start Game", e -> {
+            frame.getContentPane().removeAll();
+            frame.add(new InfoPanel(frame));
+            frame.revalidate();
+            frame.repaint();
+        })
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(startButton);
